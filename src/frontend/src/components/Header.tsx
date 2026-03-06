@@ -62,7 +62,7 @@ export default function Header({
                 Modeling Sambalpuri
               </div>
               <div className="font-display text-xs sm:text-sm font-medium text-gold -mt-0.5 tracking-wide">
-                Sadhi
+                Shadhi
               </div>
             </div>
           </motion.button>

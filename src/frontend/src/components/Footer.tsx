@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="text-center sm:text-left">
             <div className="font-display text-base font-bold text-maroon">
-              Modeling Sambalpuri Sadhi
+              Modeling Sambalpuri Shadhi
             </div>
             <p className="font-body text-xs text-muted-foreground mt-0.5">
               Authentic handwoven sarees from Odisha
