@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Playfair Display ── */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── General Sans ── */
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* ── Sambalpuri Palette (OKLCH L C H) ── */
+    /* Cream ivory background */
+    --background: 0.975 0.012 85;
+    /* Deep rich maroon for text */
+    --foreground: 0.22 0.055 20;
+    /* Card warm white */
+    --card: 0.985 0.008 75;
+    --card-foreground: 0.22 0.055 20;
+    /* Popover */
+    --popover: 0.985 0.008 75;
+    --popover-foreground: 0.22 0.055 20;
+    /* Primary: Deep maroon */
+    --primary: 0.33 0.12 20;
+    --primary-foreground: 0.975 0.012 85;
+    /* Secondary: warm terracotta light */
+    --secondary: 0.94 0.025 50;
+    --secondary-foreground: 0.33 0.12 20;
+    /* Muted: soft warm gray */
+    --muted: 0.93 0.018 65;
+    --muted-foreground: 0.52 0.04 35;
+    /* Accent: Saffron gold */
+    --accent: 0.78 0.14 68;
+    --accent-foreground: 0.18 0.06 25;
+    /* Destructive */
+    --destructive: 0.57 0.24 27;
+    --destructive-foreground: 0.975 0.012 85;
+    /* Border: warm tan */
+    --border: 0.88 0.03 55;
+    --input: 0.88 0.03 55;
+    --ring: 0.55 0.1 30;
+
+    /* Charts */
+    --chart-1: 0.33 0.12 20;
+    --chart-2: 0.78 0.14 68;
+    --chart-3: 0.55 0.14 40;
+    --chart-4: 0.65 0.11 55;
+    --chart-5: 0.45 0.13 30;
+
+    /* Sidebar */
+    --sidebar: 0.975 0.012 85;
+    --sidebar-foreground: 0.22 0.055 20;
+    --sidebar-primary: 0.33 0.12 20;
+    --sidebar-primary-foreground: 0.975 0.012 85;
+    --sidebar-accent: 0.94 0.025 50;
+    --sidebar-accent-foreground: 0.33 0.12 20;
+    --sidebar-border: 0.88 0.03 55;
+    --sidebar-ring: 0.55 0.1 30;
+
+    /* Custom brand tokens */
+    --gold: 0.78 0.14 68;
+    --maroon: 0.33 0.12 20;
+    --maroon-deep: 0.22 0.1 18;
+    --terracotta: 0.62 0.12 38;
+    --cream: 0.975 0.012 85;
+    --warm-white: 0.99 0.005 80;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Playfair Display", serif;
+  }
+  .font-body {
+    font-family: "General Sans", sans-serif;
+  }
+
+  /* Sambalpuri weave pattern border using CSS */
+  .weave-border {
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        oklch(var(--gold) / 0.25) 0px,
+        oklch(var(--gold) / 0.25) 1px,
+        transparent 1px,
+        transparent 8px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        oklch(var(--maroon) / 0.15) 0px,
+        oklch(var(--maroon) / 0.15) 1px,
+        transparent 1px,
+        transparent 8px
+      );
+  }
+
+  /* Ikat-inspired decorative divider */
+  .ikat-divider {
+    background: repeating-linear-gradient(
+      90deg,
+      oklch(var(--gold)) 0,
+      oklch(var(--gold)) 4px,
+      oklch(var(--maroon)) 4px,
+      oklch(var(--maroon)) 8px,
+      oklch(var(--gold)) 8px,
+      oklch(var(--gold)) 12px,
+      oklch(var(--cream)) 12px,
+      oklch(var(--cream)) 16px
+    );
+    height: 4px;
+  }
+
+  .card-saree {
+    background: oklch(var(--warm-white));
+    border: 1px solid oklch(var(--border));
+    box-shadow:
+      0 2px 8px oklch(var(--maroon) / 0.06),
+      0 0 0 1px oklch(var(--gold) / 0.1);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .card-saree:hover {
+    box-shadow:
+      0 8px 24px oklch(var(--maroon) / 0.12),
+      0 0 0 1px oklch(var(--gold) / 0.3);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary {
+    background: oklch(var(--maroon));
+    color: oklch(var(--cream));
+    font-family: "General Sans", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover {
+    background: oklch(var(--maroon-deep));
+  }
+
+  .btn-gold {
+    background: oklch(var(--gold));
+    color: oklch(var(--maroon-deep));
+    font-family: "General Sans", sans-serif;
+    font-weight: 600;
+  }
+
+  .btn-gold:hover {
+    background: oklch(0.72 0.15 68);
+  }
+
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+
+  .text-maroon {
+    color: oklch(var(--maroon));
+  }
+
+  .bg-maroon {
+    background-color: oklch(var(--maroon));
+  }
+
+  .bg-gold {
+    background-color: oklch(var(--gold));
+  }
+
+  .border-gold {
+    border-color: oklch(var(--gold));
+  }
+}
